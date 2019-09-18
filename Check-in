@@ -1,2 +1,5 @@
 Changed JRE to version 8.
-Re-installed TestNG
+Re-installed TestNG.
+Changed the WebDriver initialization,it should be initialized after set path.
+Added chrome options to handle notification alert
+Added a Base class to reduce the code redundancy and reuse the code.
