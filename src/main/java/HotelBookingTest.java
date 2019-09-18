@@ -1,5 +1,6 @@
 import com.sun.javafx.PlatformUtil;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
@@ -12,7 +13,7 @@ public class HotelBookingTest extends TestBase{
     @FindBy(linkText = "Hotels")
     private WebElement hotelLink;
 
-    @FindBy(id = "Tags")
+    @FindBy(name = "from")
     private WebElement localityTextBox;
 
     @FindBy(id = "SearchHotelsButton")
@@ -30,7 +31,10 @@ public class HotelBookingTest extends TestBase{
         driver.get("https://www.cleartrip.com/");
         hotelLink.click();
 
-        localityTextBox.sendKeys("Indiranagar, Bangalore");
+        waitFor(2000);
+        Actions act=new Actions(driver);
+        act.moveToElement(localityTextBox).sendKeys("Indiranagar, Bangalore");
+       // localityTextBox.sendKeys("Indiranagar, Bangalore");
 
         new Select(travellerSelection).selectByVisibleText("1 room, 2 adults");
         searchButton.click();

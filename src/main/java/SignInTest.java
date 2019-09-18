@@ -6,9 +6,6 @@ import org.testng.annotations.Test;
 
 
 public class SignInTest extends TestBase{
-
-  
-
     @Test
     public void shouldThrowAnErrorIfSignInDetailsAreMissing() {    
         super.launchbrowser();
