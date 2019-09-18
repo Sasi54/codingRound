@@ -1,26 +1,43 @@
 import com.sun.javafx.PlatformUtil;
+
+import java.util.HashMap;
+import java.util.Map;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+
 public class SignInTest {
 
-    WebDriver driver = new ChromeDriver();
+    WebDriver driver;
 
     @Test
     public void shouldThrowAnErrorIfSignInDetailsAreMissing() {
 
         setDriverPath();
-
+        ChromeOptions options=new ChromeOptions();
+        Map<String, Object> prefs=new HashMap<String,Object>();
+        prefs.put("profile.default_content_setting_values.notifications", 1);
+        //1-Allow, 2-Block, 0-default
+        options.setExperimentalOption("prefs",prefs);
+        driver = new ChromeDriver(options);
+        
         driver.get("https://www.cleartrip.com/");
         waitFor(2000);
-
+        driver.manage().window().maximize();
+        
         driver.findElement(By.linkText("Your trips")).click();
         driver.findElement(By.id("SignIn")).click();
-
-        driver.findElement(By.id("signInButton")).click();
+        
+        WebDriverWait wait = new WebDriverWait(driver, 100);
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//dd[@class='submit']")));
+        driver.findElement(By.xpath("//dd[@class='submit']")).click();
 
         String errors1 = driver.findElement(By.id("errors1")).getText();
         Assert.assertTrue(errors1.contains("There were errors in your submission"));
