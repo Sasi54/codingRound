@@ -38,7 +38,8 @@ public class HotelBookingTest {
 
     }
 
-    private void setDriverPath() {
+   
+	private void setDriverPath() {
         if (PlatformUtil.isMac()) {
             System.setProperty("webdriver.chrome.driver", "chromedriver");
         }
