@@ -1,8 +1,13 @@
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
 
 
 public class SignInTest extends TestBase{
@@ -16,10 +21,12 @@ public class SignInTest extends TestBase{
         driver.findElement(By.linkText("Your trips")).click();
         driver.findElement(By.id("SignIn")).click();
         
-        WebDriverWait wait = new WebDriverWait(driver, 100);
-        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("(//button[@type='submit' and contains(.,'Sign in')])")));
-        driver.findElement(By.xpath("//dd[@class='submit']")).click();
-
+        waitFor(6000);
+      
+        driver.switchTo().frame("modal_window");       
+        WebElement element = driver.findElement(By.id("signInButton"));
+        element.click();
+        		
         String errors1 = driver.findElement(By.id("errors1")).getText();
         Assert.assertTrue(errors1.contains("There were errors in your submission"));
         driver.quit();

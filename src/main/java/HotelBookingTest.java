@@ -32,9 +32,9 @@ public class HotelBookingTest extends TestBase{
         hotelLink.click();
 
         waitFor(2000);
-        Actions act=new Actions(driver);
-        act.moveToElement(localityTextBox).sendKeys("Indiranagar, Bangalore");
-       // localityTextBox.sendKeys("Indiranagar, Bangalore");
+       Actions act=new Actions(driver);
+       act.moveToElement(localityTextBox).sendKeys("Indiranagar, Bangalore");
+        //localityTextBox.sendKeys("Indiranagar, Bangalore");
 
         new Select(travellerSelection).selectByVisibleText("1 room, 2 adults");
         searchButton.click();

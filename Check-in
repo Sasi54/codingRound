@@ -4,3 +4,6 @@ Changed the WebDriver initialization,it should be initialized after set path.
 Added chrome options to handle notification alert
 Added a Base class to reduce the code redundancy and reuse the code.
 In HotelBookingTest Initialized the element using page factory
+In HotelBookingTest used Action Interface to perform sendkeys.
+updated chrome driver version to current to handle autocomplete.
+In Signin Test added a line to switch to frame.
