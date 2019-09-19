@@ -29,7 +29,7 @@ public class TestBase
             System.setProperty("webdriver.chrome.driver", "chromedriver");
         }
         if (PlatformUtil.isWindows()) {
-            System.setProperty("webdriver.chrome.driver", "chromedriver_77.exe");
+            System.setProperty("webdriver.chrome.driver", "chromedriver.exe");
         }
         if (PlatformUtil.isLinux()) {
             System.setProperty("webdriver.chrome.driver", "chromedriver_linux");

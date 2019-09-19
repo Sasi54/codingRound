@@ -1,7 +1,5 @@
 import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
@@ -26,7 +24,6 @@ public class FlightBookingTest extends TestBase{
         from.sendKeys("Bangalore");
      
         //wait for the auto complete options to appear for the origin
-
         waitFor(5000);
         List<WebElement> originOptions = driver.findElement(By.id("ui-id-1")).findElements(By.tagName("li"));
         wait.until(ExpectedConditions.visibilityOf(originOptions.get(0))); 
@@ -37,7 +34,6 @@ public class FlightBookingTest extends TestBase{
         to.sendKeys("Delhi");
 
         //wait for the auto complete options to appear for the destination
-
         waitFor(5000);
         //select the first item from the destination auto complete list
         List<WebElement> destinationOptions = driver.findElement(By.id("ui-id-2")).findElements(By.tagName("li"));

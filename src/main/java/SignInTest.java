@@ -1,13 +1,7 @@
 import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import org.w3c.dom.Document;
-import org.w3c.dom.Element;
 
 
 public class SignInTest extends TestBase{
@@ -21,7 +15,7 @@ public class SignInTest extends TestBase{
         driver.findElement(By.linkText("Your trips")).click();
         driver.findElement(By.id("SignIn")).click();
         
-        waitFor(6000);
+        waitFor(2000);
       
         driver.switchTo().frame("modal_window");       
         WebElement element = driver.findElement(By.id("signInButton"));

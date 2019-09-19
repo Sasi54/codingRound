@@ -1,4 +1,3 @@
-import com.sun.javafx.PlatformUtil;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
@@ -31,7 +30,7 @@ public class HotelBookingTest extends TestBase{
         driver.get("https://www.cleartrip.com/");
         hotelLink.click();
 
-        waitFor(2000);
+       waitFor(2000);
        Actions act=new Actions(driver);
        act.moveToElement(localityTextBox).sendKeys("Indiranagar, Bangalore");
         //localityTextBox.sendKeys("Indiranagar, Bangalore");
